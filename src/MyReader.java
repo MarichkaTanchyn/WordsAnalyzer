@@ -11,8 +11,14 @@ public class MyReader {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             while ((row = reader.readLine()) != null) {
+                row = row.toLowerCase().replaceAll("[^A-Za-z0-9 ]", "");
+                if (row.equals("")) {
+                    continue;
+                }
                 rowData = row.split("\\s+");
+
                 for (int i = 0; i < rowData.length; i++) {
+
                     if (data.containsKey(rowData[i])) {
                         int count = data.get(rowData[i]);
                         count++;
