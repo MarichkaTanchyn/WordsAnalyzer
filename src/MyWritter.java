@@ -20,7 +20,6 @@ public class MyWritter {
             for (Map.Entry<String, Integer> pair : data.entrySet()) {
                 bw.write(String.valueOf(pair).concat("\n"));
             }
-            System.out.println("File written Successfully");
         } catch (Exception e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
