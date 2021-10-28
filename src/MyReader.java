@@ -7,7 +7,7 @@ public class MyReader {
         String row;
         String[] rowData;
         String[] words;
-        Map<String, Integer> data = new HashMap<>();
+        Map<String, Integer> data = new LinkedHashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             while ((row = reader.readLine()) != null) {

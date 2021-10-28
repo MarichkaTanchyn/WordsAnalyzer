@@ -1,12 +1,14 @@
+import util.SortByValue;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.util.Map;
+import java.util.*;
 
 public class MyWritter {
     public static void write(Map<String, Integer> data) {
         BufferedWriter bw = null;
-        try{
+        try {
             File file = new File("./data/output.txt");
 
             if (!file.exists()) {
@@ -14,24 +16,24 @@ public class MyWritter {
             }
             FileWriter fw = new FileWriter(file);
             bw = new BufferedWriter(fw);
-
+            data = SortByValue.sortByValue(data);
             for (Map.Entry<String, Integer> pair : data.entrySet()) {
                 bw.write(String.valueOf(pair).concat("\n"));
-
             }
             System.out.println("File written Successfully");
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-        }finally
-        {
-            try{
-                if(bw!=null)
+        } finally {
+            try {
+                if (bw != null)
                     bw.close();
-            }catch(Exception ex){
-                System.out.println("Error in closing the BufferedWriter"+ex);
+            } catch (Exception ex) {
+                System.out.println("Error in closing the BufferedWriter" + ex);
             }
         }
     }
+
+
 }
 

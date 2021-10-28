@@ -7,7 +7,8 @@ public class Main {
 //        for (Map.Entry<String, Integer> pair : data.entrySet()) {
 //            System.out.println(pair);
 //        }
-
         MyWritter.write(data);
+
+
     }
 }
